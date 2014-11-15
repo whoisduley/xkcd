@@ -21,6 +21,8 @@ def password():
 		j = 0
 		while j < 10:
 			word = generate()
+			if 'myNumber' in request.args:
+				word += str(random.randrange(9))
 			if 'passLength' in request.args:
 				passLength = int(request.args['passLength'])
 				if len(word) < passLength:
@@ -85,6 +87,9 @@ def sendForm():
 
 				<label for="eight">8 = B</label>
 				<input id="eight" type="checkbox" name="eight" /><br>
+
+				<label for"myNumber">I need a number but I hate substituting numbers for letters</label>
+				<input id=myNumber" type="checkbox" name="myNumber" /><br>
 
 				<label for="capitalOne">Capitalize First Word</label>
 				<input id="capitalOne" type="checkbox" name="capitalOne" />
