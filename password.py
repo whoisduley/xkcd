@@ -205,7 +205,7 @@ def optimize(double):
 					left = False
 					k += 1
 
-		if points > 4:
+		if points > 5:
 			array.append(line)
 
 
