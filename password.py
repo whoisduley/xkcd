@@ -40,8 +40,12 @@ def password():
 def sendForm():
 	return '''
 	<html>
+		<head>
+			<link rel="stylesheet" type=text/css href="static/style.css">
+		</head>
 		<body>
 			<form method='get'>
+				<h1>xkcd Password Generator</h1>
 				<label for="lowerRange">Minimum Characters</label>
 				<input id="lowerRange" type="number" name="lowerRange" min="4" max="15" value="4"/>
 				<label for="upperRange">Maximum Characters</label>
@@ -65,7 +69,7 @@ def sendForm():
 				<input id="two" type="checkbox" name="two" /><br>
 
 				<label for="three">3 = E</label>
-				<input id="three" type="checkbox" name="three
+				<input id="three" type="checkbox" name="three" />
 
 				<label for="four">4 = A</label>
 				<input id="four" type="checkbox" name="four" />
@@ -102,7 +106,10 @@ def sendForm():
 
 def sendPage(words):
 	return '''
-		<html>
+	<html>
+		<head>
+			<link rel="stylesheet" type=text/css href="static/style.css">
+		</head>
 		<body>
 			<ul id='passwordList'>
 				<li>{0}</li>
