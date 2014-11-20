@@ -1,26 +1,9 @@
-input {
-	font-family: sans-serif;
-	margin-left: 10px;
-	margin-bottom: 20px;
-}
-
-label {
-	font-family: sans-serif;
-	margin-left: 10px;
-}
-
-ul {
-	font-family: sans-serif;
-	list-style: none;
-	margin-top: 20px;
-}
-
-li {
-	margin-bottom: 10px;
-	font-size: 30pt;
-}
-
 h1 {
 	font-family: sans-serif;
 	margin-left: 10px;
+}
+
+p {
+	font-family: sans-serif;
+	margin-left: 10px; 
 }

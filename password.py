@@ -1,14 +1,15 @@
 from flask import Flask, request, render_template
-from flask-wtf import Form
+from forms import GeneratorForm
 import random
 app = Flask(__name__)
 app.config.from_object('config')
-app.debug = True   # need this for autoreload as and stack trace
+app.debug = True
 
 
 @app.route('/')
 @app.route('/index')
 def index():
+	form = GeneratorForm()
 	if 'lowerRange' in request.args:
 		lowerRange = int(request.args['lowerRange'])
 		upperRange = int(request.args['upperRange'])
@@ -40,7 +41,7 @@ def index():
 			a += 1
 		return render_template('results.html', words = words)
 	else:
-		return render_template('index.html')
+		return render_template('index.html', form=form)
 
 def generate():
 	resultstring = ''

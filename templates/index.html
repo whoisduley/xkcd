@@ -10,25 +10,20 @@
 
 		<p>{{ form.passLength }} Password Maximum Length</p>
 
-		<p>{{ form.alternating }} Optimize Typing Speed</p>
-		<p>{{ form.double }} Include Double Letters in Speed</p>
+		<p>{{ form.alternating }} Optimize Typing Speed {{ form.double }} Include Double Letters in Optimization</p>
 
-		<p>{{ form.zero }}</p>
-		<p>{{ form.one }}</p>
-		<p>{{ form.two }}</p>
-		<p>{{ form.three }}</p>
-		<p>{{ form.four }}</p>
-		<p>{{ form.five }}</p>
-		<p>{{ form.six }}</p>
-		<p>{{ form.seven }}</p>
-		<p>{{ form.eight }}</p>
+		<p>{{ form.zero }} O = 0 {{ form.one }} L = 1 {{ form.two }} Z = 2</p>
+		
+		<p>{{ form.three }} E = 3 {{ form.four }} A = 4 {{ form.five }} S = 5</p>
 
-		<p>{{ form.capitalOne }}</p>
-		<p>{{ form.capitalTwo }}</p>
-		<p>{{ form.capitalThree }}</p>
-		<p>{{ form.capitalFour }}</p>
+		<p>{{ form.six }} G = 6 {{ form.seven }} T = 7 {{ form.eight }} B = 8</p>
 
-		<p><input type="submit" value="Sign In"></p>
+		<p>{{ form.myNumber }} I need a number but I hate 1337</p>
+
+		<p>{{ form.capitalOne }} Capitalize First Word {{ form.capitalTwo }}Capitalize Second Word{{ form.capitalThree }}Capitalize Third Word{{ form.capitalFour }}Capitalize Fourth Word</p>
+
+
+		<p><input type="submit" value="Generate"></p>
 	</form>
 {% endblock %}
 
