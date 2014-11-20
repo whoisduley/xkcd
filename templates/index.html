@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<link rel="stylesheet" type=text/css href="static/style.css">
+	</head>
+{% block content %}
+	<h1>xkcd Password Generator</h1>
+	<form action="" method="get">
+		<p>{{ form.lowerRange }} Minimum Characters</p>
+		<p>{{ form.upperRange }} Maximum Characters</p>
+
+		<p>{{ form.passLength }} Password Maximum Length</p>
+
+		<p>{{ form.alternating }} Optimize Typing Speed</p>
+		<p>{{ form.double }} Include Double Letters in Speed</p>
+
+		<p>{{ form.zero }}</p>
+		<p>{{ form.one }}</p>
+		<p>{{ form.two }}</p>
+		<p>{{ form.three }}</p>
+		<p>{{ form.four }}</p>
+		<p>{{ form.five }}</p>
+		<p>{{ form.six }}</p>
+		<p>{{ form.seven }}</p>
+		<p>{{ form.eight }}</p>
+
+		<p>{{ form.capitalOne }}</p>
+		<p>{{ form.capitalTwo }}</p>
+		<p>{{ form.capitalThree }}</p>
+		<p>{{ form.capitalFour }}</p>
+
+		<p><input type="submit" value="Sign In"></p>
+	</form>
+{% endblock %}
+

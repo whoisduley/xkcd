@@ -1,11 +1,14 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
+from flask-wtf import Form
 import random
 app = Flask(__name__)
+app.config.from_object('config')
 app.debug = True   # need this for autoreload as and stack trace
 
 
 @app.route('/')
-def password():
+@app.route('/index')
+def index():
 	if 'lowerRange' in request.args:
 		lowerRange = int(request.args['lowerRange'])
 		upperRange = int(request.args['upperRange'])
@@ -35,102 +38,9 @@ def password():
 		while a < 10:
 			words[a] = substitute(words[a])
 			a += 1
-		return sendPage(words)
+		return render_template('results.html', words = words)
 	else:
-		return sendForm()
-
-def sendForm():
-	return '''
-	<html>
-		<head>
-			<link rel="stylesheet" type=text/css href="static/style.css">
-		</head>
-		<body>
-			<form method='get'>
-				<h1>xkcd Password Generator</h1>
-				<label for="lowerRange">Minimum Characters</label>
-				<input id="lowerRange" type="number" name="lowerRange" min="4" max="15" value="4"/>
-				<label for="upperRange">Maximum Characters</label>
-				<input id="upperRange" type="number" name="upperRange" min="4" max="15" value="15"/><br>
-
-				<label for="passLength">Password Maximum Length</label>
-				<input id="passLength" type="number" name="passLength" min="30" max="55" value="55" /><br>
-
-				<label for="alternating">Optimize Typing Speed</label>
-				<input id="alternating" type="checkbox" name="alternating" />
-				<label for="double">Include Double Letters in Speed</label>
-				<input id="double" type ="checkbox" name="double" /><br>
-
-				<label for="zero">0 = O</label>
-				<input id="zero" type="checkbox" name="zero" />
-
-				<label for="one">1 = L</label>
-				<input id="one" type="checkbox" name="one" />
-
-				<label for="two">2 = Z</label>
-				<input id="two" type="checkbox" name="two" /><br>
-
-				<label for="three">3 = E</label>
-				<input id="three" type="checkbox" name="three" />
-
-				<label for="four">4 = A</label>
-				<input id="four" type="checkbox" name="four" />
-
-				<label for="five">5 = S</label>
-				<input id="five" type="checkbox" name="five" /><br>
-
-				<label for="six">6 = G</label>
-				<input id="six" type="checkbox" name="six" />
-
-				<label for="seven">7 = T</label>
-				<input id="seven" type="checkbox" name="seven" />
-
-				<label for="eight">8 = B</label>
-				<input id="eight" type="checkbox" name="eight" /><br>
-
-				<label for"myNumber">I need a number but I hate substituting numbers for letters</label>
-				<input id=myNumber" type="checkbox" name="myNumber" /><br>
-
-				<label for="capitalOne">Capitalize First Word</label>
-				<input id="capitalOne" type="checkbox" name="capitalOne" />
-
-				<label for="capitalTwo">Capitalize Second Word</label>
-				<input id="capitalTwo" type="checkbox" name="capitalTwo" />
-
-				<label for="capitalThree">Capitalize Third Word</label>
-				<input id="capitalThree" type="checkbox" name="capitalThree" />
-
-				<label for="capitalFour">Capitalize Fourth Word</label>
-				<input id="capitalFour" type="checkbox" name="capitalFour" /><br>
-
-				<input type="submit" value="Generate"/>
-			</form>
-		</body>
-	</html>
-	'''
-
-def sendPage(words):
-	return '''
-	<html>
-		<head>
-			<link rel="stylesheet" type=text/css href="static/style.css">
-		</head>
-		<body>
-			<ul id='passwordList'>
-				<li>{0}</li>
-				<li>{1}</li>
-				<li>{2}</li>
-				<li>{3}</li>
-				<li>{4}</li>
-				<li>{5}</li>
-				<li>{6}</li>
-				<li>{7}</li>
-				<li>{8}</li>
-				<li>{9}</li>
-			</ul>
-		</body>
-	</html>
-	'''.format(words[0], words[1], words[2], words[3], words[4], words[5], words[6], words[7], words[8], words[9])
+		return render_template('index.html')
 
 def generate():
 	resultstring = ''
