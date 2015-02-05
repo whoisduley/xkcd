@@ -1,3 +1,3 @@
 # xkcd
 
-Hosted on duley-password.heroku.com
+Password generator based on http://imgs.xkcd.com/comics/password_strength.png
